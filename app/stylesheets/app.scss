@@ -10,13 +10,23 @@ body {
   background: radial-gradient(#2b1339, #380c77);
 }
 
+// medium-purple: #7b46a3 - 123, 70, 163
+
+.player-header-nav {
+  background-color: rgba(123, 70, 163, .9);
+}
+
+body.landing .navbar {
+  margin-bottom: 0;
+}
+
 body.landing {
   background: #5B5579;
 }
   
 .hero-content {
   background: #2f1d57;
-  padding: 100px;
+  padding: 100px 0;
 }
 
 .hero-content h1 {
@@ -26,7 +36,7 @@ body.landing {
 }
 
 .selling-points {
-  padding: 100px;
+  padding: 100px 0;
 }
 
 .selling-points .point {
@@ -47,9 +57,49 @@ body.landing {
   font-size: 14px;
 }
 
-.nav-bar {
-  background: #2c1231;
-  height: 90px;
-  padding: 0 100px;
+
+.album-header-container {
+  margin-top: 55px;
+  margin-bottom: 40px;
 }
+
+// This styles the right side of our Album Header
+.album-header-information {
+  // Pushes the album information down and makes sure there's sufficient space at the bottom of the page
+  margin-top: 45px;
+  margin-bottom: 20px;
+}
+
+.album-header-information h3, .album-header-information h4, .album-header-information h5 {
+  line-height: 150%;
+}
+
+.album-header-information h3 {
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.album-header-information h4 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.album-header-information h5 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+// This styles our Song Listing
+.table.album-song-listing {
+  font-weight: 300;
+}
+
+.table.album-song-listing td {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, .4);
+}
+
+
+
+
 

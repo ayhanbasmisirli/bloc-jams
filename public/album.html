@@ -4,22 +4,31 @@
   <meta charset="UTF-8">
   <title>Bloc Jams</title>
   <link rel="stylesheet" href="http://yui.yahooapis.com/3.17.1/build/cssreset/cssreset-min.css" type="text/css">
-  <link rel="stylesheet" href="/stylesheets/app.css" type="text/css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300" type="text/css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.js"> -->
+  <link rel="stylesheet" href="/stylesheets/app.css" type="text/css">
 </head>
-<body>
-  <div class='nav-bar'> <!-- Nav Bar -->
-    <img src="/images/blocjams.png" alt="Bloc-Logo">
-  </div>
+<body class='player'>
+  
+  <nav class="player-header-nav navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <a  class="logo navbar-left">
+          <img src="/images/blocjams.png" alt="Bloc Jams Logo">
+        </a>
+      </div>
+    </div>
+  </nav>
 
-  <div class="album-container">
-    <div class="album-header container">
+  <div class="album-container container">
+    <div class="album-header-container row">
       
-      <div>
+      <div class='col-md-3'>
         <img src="/images/album-placeholder.png" alt="album cover">
       </div>
 
-      <div class="album-information">
+      <div class="album-header-information col-md-8 col-md-push-1">
         <h3>The Colors</h3>
         <h4>Pablo Picasso</h4>
         <h5>1881 on Cubism</h5>
@@ -28,31 +37,31 @@
     </div>
 
     <div> <!-- Song table -->
-      <table class="album-song-listing">
+      <table class="album-song-listing table">
         <tr>
-          <td>1</td>
-          <td>Blue</td>
-          <td>X:XX</td>
+          <td class='col-md-1'>1</td>
+          <td class='col-md-9'>Blue</td>
+          <td class='col-md-2'>X:XX</td>
         </tr>
         <tr>
-          <td>2</td>
-          <td>Green</td>
-          <td>X:XX</td>
+          <td class='col-md-1'>2</td>
+          <td class='col-md-9'>Green</td>
+          <td class='col-md-2'>X:XX</td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>Red</td>
-          <td>X:XX</td>
+          <td class='col-md-1'>3</td>
+          <td class='col-md-9'>Red</td>
+          <td class='col-md-2'>X:XX</td>
         </tr>
         <tr>
-          <td>4</td>
-          <td>Pink</td>
-          <td>X:XX</td>
+          <td class='col-md-1'>4</td>
+          <td class='col-md-9'>Pink</td>
+          <td class='col-md-2'>X:XX</td>
         </tr>
         <tr>
-          <td>5</td>
-          <td>Magenta</td>
-          <td>X:XX</td>
+          <td class='col-md-1'>5</td>
+          <td class='col-md-9'>Magenta</td>
+          <td class='col-md-2'>X:XX</td>
         </tr>
       </table>
     </div>
