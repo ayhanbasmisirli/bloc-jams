@@ -1,0 +1,34 @@
+<div class="collection-container container">
+  <div class="row">
+    <div class="collection-album-container col-md-2" ng-repeat="album in albums">
+
+      <div ng-mouseenter="showOverlay = true" ng-mouseleave="showOverlay = false" class="collection-album-image-container">
+        <img ng-src="{{ album.albumArtUrl }}" alt="album art">
+        <div class="collection-album-image-overlay" ng-show="showOverlay">
+          <div class="collection-overlay-content">
+            <a ui-sref="album" class="collection-overlay-button">
+              <i class="fa fa-play"></i>
+            </a>
+            
+            &nbsp;
+
+            <a class="collection-overlay-button">
+              <i class="fa fa-plus"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="collection-album-info caption">
+        <p>
+          <a ui-sref="album" class="album-name">{{ album.name }}</a>
+          <br/>
+          <a ui-sref="album">{{ album.artist }}</a>
+          <br/>
+          {{ album.songs.length }} songs
+          <br/>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
