@@ -13,6 +13,7 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
     controller: 'Landing.controller',
     templateUrl: '/templates/landing.html'
   });
+
 }]);
 
 

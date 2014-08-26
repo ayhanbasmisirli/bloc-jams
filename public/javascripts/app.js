@@ -259,6 +259,11 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
     controller: 'Landing.controller',
     templateUrl: '/templates/landing.html'
   });
+
+  $stateProvider.state('song', {
+    url: '/song',
+    templateUrl: '/templates/song.html'
+  });
 }]);
 
 
