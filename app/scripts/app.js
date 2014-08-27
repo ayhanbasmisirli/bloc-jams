@@ -116,9 +116,17 @@ blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope
 
 blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
   $scope.songPlayer = SongPlayer;
+
+  SongPlayer.onTimeUpdate(function(event, time) {
+    $scope.$apply(function() {
+      $scope.playTime = time;
+    });
+  });
+
 }]);
 
-blocJams.service('SongPlayer', function() {
+
+blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
 
   var currentSoundFile = null;
 
@@ -163,6 +171,9 @@ blocJams.service('SongPlayer', function() {
         currentSoundFile.setTime(time);
       }
     },
+    onTimeUpdate: function(callback) {
+      return $rootScope.$on('sound:timeupdate', callback);
+    },
     setSong: function(album, song) {
       if (currentSoundFile) {
         currentSoundFile.stop();
@@ -175,10 +186,14 @@ blocJams.service('SongPlayer', function() {
         preload: true
       });
 
+      currentSoundFile.bind('timeupdate', function(e) {
+        $rootScope.$broadcast('sound:timeupdate', this.getTime());
+      });
+
       this.play();
     }
   };
-});
+}]);
 
 blocJams.directive('slider', ['$document', function($document) {
 
@@ -273,6 +288,33 @@ blocJams.directive('slider', ['$document', function($document) {
     }
   };
 }]);
+
+blocJams.filter('timecode', function() {
+  return function(seconds) {
+    seconds = Number.parseFloat(seconds);
+
+    if (Number.isNaN(seconds)) {
+      return '-:--';
+    }
+
+
+    var wholeSeconds = Math.floor(seconds);
+    var minutes = Math.floor(wholeSeconds / 60);
+    var remainingSeconds = wholeSeconds % 60;
+
+    var output = minutes + ':';
+
+    if (remainingSeconds < 10) {
+      output += '0';
+    }
+
+    output += remainingSeconds;
+
+    return output;
+
+
+  };
+});
 
 function shuffle(o){ //v1.0
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
